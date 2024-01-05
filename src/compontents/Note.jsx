@@ -1,17 +1,22 @@
 import React from 'react';
+
+// material icons
+import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
 import './stylesheets/note.css'
 
-export default function Note() {
+export default function Note(prop) {
     return (
         <div className='note'>
             <div className='note-details'>
-                <div className='note-title'>Title of note</div>
-                <div className='note-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, similique? Et repudiandae non soluta molestiae modi delectus facere deserunt dolores culpa explicabo fugiat quidem, corporis neque assumenda nisi adipisci eius.</div>
+                <div className='note-title'>{prop.notedata.title}</div>
+                <div className='note-text'>{prop.notedata.text}</div>
             </div>
             <br />
             <div className='note-actions'>
-                <button id='view'>view</button>
-                <button id='delete'>delete</button>
+                <button id='view'><VisibilityIcon fontSize='small' /></button>
+                <button id='delete' onClick={() => prop.delete(prop.id)}><DeleteIcon fontSize='small' /></button>
                 </div>
         </div>
     );

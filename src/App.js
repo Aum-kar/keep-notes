@@ -1,24 +1,42 @@
 import './App.css';
+import { useState } from 'react';
 
 import Header from './compontents/Header';
 import CreateContainer from './compontents/CreateContainer';
 import Note from './compontents/Note';
 
 function App() {
+
+  const [notesArray, setNotesArray] = useState([]);
+
+  function addNote(newNote) {
+    setNotesArray((prevdata) => {
+      return [...prevdata, newNote];
+    })
+  }
+
+  function deleteNote(id) {
+    setNotesArray((prevdata) => {
+      return prevdata.filter((element, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="App">
       <Header />
       <div className='container'>
-        <CreateContainer />
+        <CreateContainer newNote={addNote} />
         <div className='notes-container'>
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
+          {notesArray.map((element, index) => {
+            return <Note
+              key={index}
+              id={index}
+              notedata={element}
+              delete={deleteNote} />
+          })
+          }
         </div>
       </div>
 
