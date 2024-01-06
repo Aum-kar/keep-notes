@@ -5,7 +5,7 @@
     align-items: flex-end;
     padding: 10px;
     gap: 10px;
-    border-right: 3px dashed #ccc;
+    border-right: 2px solid #ccc;
     font-size: 16px;
 }
 

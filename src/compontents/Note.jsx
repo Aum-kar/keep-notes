@@ -15,7 +15,7 @@ export default function Note(prop) {
             </div>
             <br />
             <div className='note-actions'>
-                <button id='view'><VisibilityIcon fontSize='small' /></button>
+                <button id='view' onClick={() => prop.showNote(prop.id)}><VisibilityIcon fontSize='small' /></button>
                 <button id='delete' onClick={() => prop.delete(prop.id)}><DeleteIcon fontSize='small' /></button>
                 </div>
         </div>
